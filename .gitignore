@@ -1,3 +1,9 @@
+# Packages that are too heavy for the repo
 vendor/
 node_modules/
+
+# Tailwind CSS Temporary file
+input.css
+
+# Environment Variables
 .env
