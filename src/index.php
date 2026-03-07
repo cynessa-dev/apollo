@@ -9,6 +9,17 @@
     <link href="./global.css" rel="stylesheet" />
 </head>
 <body>
-    <h1>Hello, World!</h1>
+    <hero>
+        <div class="mb-8">
+            <h1 class="text-[2.5rem] font-bold">Take your music listening to the next level</h1>
+            <p class="tracking-[0.125rem]">Wanna listen hassle-free? Come and jam together with Apollo.</p>
+        </div>
+        <a 
+            href="./public/home"
+            class="px-4 py-3 bg-accent font-semibold rounded-full"
+        >
+            Get Jamming!
+        </a>
+    </hero>
 </body>
 </html>
