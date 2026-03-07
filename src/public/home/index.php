@@ -12,9 +12,15 @@
         <nav class="flex justify-between items-center px-6 py-4 bg-panel">
             <h1 class="text-[1.5rem] font-semibold">Apollo</h1>
             <ul class="flex space-x-6 text-[1.125rem]">
-                <li>Documentation</li>
-                <li>GitHub</li>
-                <li>Creator</li>
+                <li>
+                    <a href="https://github.com/cynessa-dev/apollo/blob/main/DEVLOG.md" target="_blank">Documentation</a>
+                </li>
+                <li>
+                    <a href="https://github.com/cynessa-dev" target="_blank">GitHub</a>
+                </li>
+                <li>
+                    <a href="https://christian-mamplata.vercel.app/" target="_blank">Creator</a>
+                </li>
             </ul>
         </nav>
 
