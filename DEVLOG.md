@@ -7,6 +7,25 @@ End Date: ---
 
 ***
 
+## ✨ The Chambers of Data --- March 07, 2026 [DAY 02]
+
+### Hello, World
+
+I'm back! I got busy yesterday due to academic reasons, but I have returned to continue the project. Currently, I got a few days off, so I'll be able to focus on developing Project: Apollo. Below are the changes I made today, please feel free to read them to understand future developments.
+
+### Update
+
+I have updated `docker-compose.yml` and the following are the changes made:
+
+- environment for web service
+- remove deprecated version tag
+
+### Background of the Changes
+
+I noticed the I forgot to add the environment of the apache document root to allow explicit configuration changes, therefore I added it before running `docker compose up -d`.
+
+Additionally, I removed the deprecated version tag to align with modern docker rules. This will ensure the future developers will understand and see the this project followed the current modern requirements at the time of it's development.
+
 ## 🚀 The Start of a Journey --- March 05, 2026 [DAY 01]
 
 ### A Quick Note
@@ -16,6 +35,7 @@ This is the start of Project: Apollo, a project meant to test and showcase my sk
 ### The Gameplan
 
 The required Tech are:
+
 - PHP
 - Tailwind CSS
 
