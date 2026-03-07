@@ -46,6 +46,7 @@ The required Tech are:
 Eventually, I plan to convert the project into a **Laravel** project to further deepen my knowledge in PHP. For now, this will be enough for a battleground to train me.  
 
 Additional Tech that I will be learning is:
+
 - Docker
 - Railway / Render
 
