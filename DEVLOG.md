@@ -24,7 +24,11 @@ I have updated `docker-compose.yml` and the following are the changes made:
 
 I noticed the I forgot to add the environment of the apache document root to allow explicit configuration changes, therefore I added it before running `docker compose up -d`.
 
-Additionally, I removed the deprecated version tag to align with modern docker rules. This will ensure the future developers will understand and see the this project followed the current modern requirements at the time of it's development.
+Additionally, I removed the **deprecated version tag** to align with modern docker rules. This will ensure the future developers will understand and see the this project followed the current modern requirements at the time of it's development.
+
+### The Journey
+
+I ran the `docker compose up -d` command to see if it is working, and it was! That was great! Now, I need to add TailwindCSS to dress up my application elegantly. Instead of using the CDN, I will be **compiling the source**! This will allow me to work offline, compile only the needed classes, and avoid bloating my web app! That's a **win-win** if you ask me.
 
 ## 🚀 The Start of a Journey --- March 05, 2026 [DAY 01]
 
