@@ -34,7 +34,7 @@
             </div>
 
             <!-- MAIN PANEL -->
-            <div class="w-full p-3 bg-panel rounded-lg">
+            <div class="w-full px-6 py-3 bg-panel rounded-lg">
                 <!-- TOP PICK SONG CARDS -->
                 <div class="mb-8">
                     <h1 class="text-[2rem] font-bold">Top Picks</h1>
