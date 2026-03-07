@@ -6,7 +6,7 @@
     <title>Apollo</title>
 
     <!-- CSS STYLE -->
-    <link rel="stylesheet" href="../../global.css">
+    <link rel="stylesheet" href="/global.css">
 </head>
 <body>
     <hero>
