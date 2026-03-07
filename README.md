@@ -1,13 +1,14 @@
 
 # README
 
-*NOTE: This project is for educational purposes only. It is meant to be used by future developers as an example or reference for their projects, so feel free to use it as long as it will help you in your journey.  *
+*NOTE: This project is for educational purposes only. It is meant to be used by future developers as an example or reference for their projects, so feel free to use it as long as it will help you in your journey.*  
 
-### Project: Apollo
+## Project: Apollo
 
 A homework given to me by Professor Collado for his PHP Subject at my University. The task is to develop a music web app to demonstrate PHP and Design Skills, the task involves planning, designing, and deployment.
 
 The following are **techs** used in the project:
+
 - Docker
 - MySQL
 - PHP
