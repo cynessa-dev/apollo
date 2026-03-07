@@ -17,5 +17,9 @@
   "bugs": {
     "url": "https://github.com/cynessa-dev/apollo/issues"
   },
-  "homepage": "https://github.com/cynessa-dev/apollo#readme"
+  "homepage": "https://github.com/cynessa-dev/apollo#readme",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.2.1",
+    "tailwindcss": "^4.2.1"
+  }
 }
