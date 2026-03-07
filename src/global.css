@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@layer properties;
 @layer theme, base, components, utilities;
 @layer theme {
   :root, :host {
@@ -10,8 +11,11 @@
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
     --spacing: 0.25rem;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
+    --color-accent: oklch(0.6868 0.2689 324.48);
     --color-background: oklch(0.9956 0 324.48);
     --color-head: oklch(0.165 0 324.48);
     --color-body: oklch(0.2346 0 324.48);
@@ -171,6 +175,36 @@
   .start {
     inset-inline-start: var(--spacing);
   }
+  .mb-8 {
+    margin-bottom: calc(var(--spacing) * 8);
+  }
+  .rounded-full {
+    border-radius: calc(infinity * 1px);
+  }
+  .bg-accent {
+    background-color: var(--color-accent);
+  }
+  .px-4 {
+    padding-inline: calc(var(--spacing) * 4);
+  }
+  .py-3 {
+    padding-block: calc(var(--spacing) * 3);
+  }
+  .text-\[2\.5rem\] {
+    font-size: 2.5rem;
+  }
+  .font-bold {
+    --tw-font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
+  }
+  .font-semibold {
+    --tw-font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold);
+  }
+  .tracking-\[0\.125rem\] {
+    --tw-tracking: 0.125rem;
+    letter-spacing: 0.125rem;
+  }
 }
 :root {
   font-size: 16px;
@@ -180,9 +214,6 @@ body {
   font-family: var(--font-body);
   font-size: 1rem;
 }
-main {
-  padding: 1rem;
-}
 h1 {
   color: var(--color-head);
   font-family: var(--font-header);
@@ -190,4 +221,20 @@ h1 {
 p {
   color: var(--color-body);
   font-family: var(--font-body);
+}
+@property --tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-tracking {
+  syntax: "*";
+  inherits: false;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    *, ::before, ::after, ::backdrop {
+      --tw-font-weight: initial;
+      --tw-tracking: initial;
+    }
+  }
 }
