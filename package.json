@@ -1,0 +1,21 @@
+{
+  "name": "apollo",
+  "version": "1.0.0",
+  "description": "*NOTE: This project is for educational purposes only. It is meant to be used by future developers as an example or reference for their projects, so feel free to use it as long as it will help you in your journey.*",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cynessa-dev/apollo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/cynessa-dev/apollo/issues"
+  },
+  "homepage": "https://github.com/cynessa-dev/apollo#readme"
+}
