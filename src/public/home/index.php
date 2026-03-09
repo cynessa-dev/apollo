@@ -5,7 +5,7 @@ require_once '/var/www/html/config/backend/musicPlayer.php';
 require_once '/var/www/html/config/models/free.php';
 
 $api = new JamendoAPI();
-$tracks = $api->searchTracks('rock');
+$tracks = $api->getPopularTracks();
 
 $user = new Free('Chano');
 
