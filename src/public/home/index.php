@@ -1,3 +1,18 @@
+<?php
+
+require_once '/var/www/html/config/services/jamendoAPI.php';
+require_once '/var/www/html/config/backend/musicPlayer.php';
+require_once '/var/www/html/config/models/free.php';
+
+$api = new JamendoAPI();
+$tracks = $api->searchTracks('rock');
+
+$user = new Free('Chano');
+
+$player = new MusicPlayer();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,29 +70,26 @@
                 <div class="mb-8">
                     <h1 class="text-[2rem] font-bold">Top Picks</h1>
                     <div class="flex space-x-2">
-                        <div class="flex flex-col p-3 min-w-48 bg-card border border-border rounded-lg">
-                            <div class="w-full mb-2 max-h-48 bg-panel rounded-md">
-                                <img 
-                                    src="/assets/icons/music-note.svg" 
-                                    alt="music"
-                                    class="w-full h-full"
-                                />
+                        <?php foreach ($tracks['results'] as $track) : ?>
+                            <div class="flex flex-col p-3 min-w-48 bg-card border border-border rounded-lg">
+                            <!-- IMAGE  -->
+                                <div class="w-full mb-2 max-h-48 bg-panel rounded-md">
+                                    <img 
+                                        src=<?= $track['album_image']; ?> 
+                                        alt=<?= $track['album_id']; ?>
+                                        class="w-full h-full rounded-md select-none"
+                                    />
+                                </div>
+                                <!-- TITLE -->
+                                <h2 class="max-w-full text-[1.125rem] font-semibold text-ellipsis whitespace-nowrap overflow-hidden">
+                                    <?= $track['name']; ?>
+                                </h2>
+                                <!-- ARTIST -->
+                                <p class="max-w-full text-sm font-light text-ellipsis whitespace-nowrap overflow-hidden">
+                                    <?= $track['artist_name']; ?>
+                                </p>
                             </div>
-                            <h2 class="text-[1.125rem] font-semibold">Hello, World</h2>
-                            <p class="text-sm font-light">Chano the Artist</p>
-                        </div>
-
-                        <div class="flex flex-col p-3 min-w-48 bg-card border border-border rounded-lg">
-                            <div class="w-full mb-2 max-h-48 bg-panel rounded-md">
-                                <img 
-                                    src="/assets/icons/music-note.svg" 
-                                    alt="music"
-                                    class="w-full h-full"
-                                />
-                            </div>
-                            <h2 class="text-[1.125rem] font-semibold">Hello, World</h2>
-                            <p class="text-sm font-light">Chano the Artist</p>
-                        </div>
+                        <?php endforeach; ?>
                     </div>
                 </div>
 
