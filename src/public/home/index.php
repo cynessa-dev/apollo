@@ -6,7 +6,12 @@ require_once '/var/www/html/config/models/free.php';
 
 $api = new JamendoAPI();
 $top_picks = $api->getPopularTracks();
-$rock_tracks = $api->searchTracks('rock');
+
+$genres = [
+    'rock' => 'Get Hyped Up!',
+    'love' => 'Love is in The Air',
+    'metal' => 'Metal All The Way!'
+];
 
 $user = new Free('Chano');
 
@@ -96,33 +101,38 @@ $user = new Free('Chano');
                 </div>
 
                 <!-- ROCK CARDS -->
-                <div class="mb-8">
-                    <h1 class="text-[2rem] font-bold">Get Hyped Up!</h1>
-                    <div class="flex space-x-2">
-                        <?php foreach ($rock_tracks['results'] as $track) : ?>
-                            <div 
-                                onclick="playTrack('<?= $track['audio'] ?>')" 
-                                class="flex flex-col p-3 min-w-48 bg-card border border-border rounded-lg cursor-pointer">
-                            <!-- IMAGE  -->
-                                <div class="w-full mb-2 max-h-48 bg-panel rounded-md">
-                                    <img 
-                                        src=<?= $track['album_image']; ?> 
-                                        alt=<?= $track['album_id']; ?>
-                                        class="w-full h-full rounded-md select-none"
-                                    />
+                <?php foreach ($genres as $genre => $catchphrase ) : ?>
+                    <div class="mb-8">
+                        <h1 class="text-[2rem] font-bold">
+                            <?= $catchphrase ?>
+                        </h1>
+                        <div class="flex space-x-2">
+                            <?php $tracks = $api->searchTracks($genre) ?>
+                            <?php foreach ($tracks['results'] as $track) : ?>
+                                <div 
+                                    onclick="playTrack('<?= $track['audio'] ?>')" 
+                                    class="flex flex-col p-3 min-w-48 bg-card border border-border rounded-lg cursor-pointer">
+                                <!-- IMAGE  -->
+                                    <div class="w-full mb-2 max-h-48 bg-panel rounded-md">
+                                        <img 
+                                            src=<?= $track['album_image']; ?> 
+                                            alt=<?= $track['album_id']; ?>
+                                            class="w-full h-full rounded-md select-none"
+                                        />
+                                    </div>
+                                    <!-- TITLE -->
+                                    <h2 class="max-w-full text-[1.125rem] font-semibold text-ellipsis whitespace-nowrap overflow-hidden">
+                                        <?= $track['name']; ?>
+                                    </h2>
+                                    <!-- ARTIST -->
+                                    <p class="max-w-full text-sm font-light text-ellipsis whitespace-nowrap overflow-hidden">
+                                        <?= $track['artist_name']; ?>
+                                    </p>
                                 </div>
-                                <!-- TITLE -->
-                                <h2 class="max-w-full text-[1.125rem] font-semibold text-ellipsis whitespace-nowrap overflow-hidden">
-                                    <?= $track['name']; ?>
-                                </h2>
-                                <!-- ARTIST -->
-                                <p class="max-w-full text-sm font-light text-ellipsis whitespace-nowrap overflow-hidden">
-                                    <?= $track['artist_name']; ?>
-                                </p>
-                            </div>
-                        <?php endforeach; ?>
+                            <?php endforeach; ?>
+                        </div>
                     </div>
-                </div>
+                <?php endforeach; ?>
             </div>
 
         </div>
