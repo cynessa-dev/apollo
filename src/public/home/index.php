@@ -9,8 +9,6 @@ $tracks = $api->searchTracks('rock');
 
 $user = new Free('Chano');
 
-$player = new MusicPlayer();
-
 ?>
 
 <!DOCTYPE html>
@@ -20,6 +18,7 @@ $player = new MusicPlayer();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listen with Apollo</title>
     <link rel="stylesheet" href="/global.css">
+    <script src="/config/scripts/player.js" defer></script>
 </head>
 <body>
     <div class="flex flex-col space-y-3">
@@ -71,7 +70,9 @@ $player = new MusicPlayer();
                     <h1 class="text-[2rem] font-bold">Top Picks</h1>
                     <div class="flex space-x-2">
                         <?php foreach ($tracks['results'] as $track) : ?>
-                            <div class="flex flex-col p-3 min-w-48 bg-card border border-border rounded-lg">
+                            <div 
+                                onclick="playTrack('<?= $track['audio'] ?>')" 
+                                class="flex flex-col p-3 min-w-48 bg-card border border-border rounded-lg cursor-pointer">
                             <!-- IMAGE  -->
                                 <div class="w-full mb-2 max-h-48 bg-panel rounded-md">
                                     <img 
@@ -124,6 +125,11 @@ $player = new MusicPlayer();
                 </div>
             </div>
 
+        </div>
+
+        <!-- PLAYER -->
+        <div class="fixed bottom-0 left-0 w-full bg-card p-4 border-t border-border">
+            <audio id="player" controls class="w-full"></audio>
         </div>
 
     </div>
