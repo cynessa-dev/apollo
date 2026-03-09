@@ -5,7 +5,8 @@ require_once '/var/www/html/config/backend/musicPlayer.php';
 require_once '/var/www/html/config/models/free.php';
 
 $api = new JamendoAPI();
-$tracks = $api->getPopularTracks();
+$top_picks = $api->getPopularTracks();
+$rock_tracks = $api->searchTracks('rock');
 
 $user = new Free('Chano');
 
@@ -69,7 +70,7 @@ $user = new Free('Chano');
                 <div class="mb-8">
                     <h1 class="text-[2rem] font-bold">Top Picks</h1>
                     <div class="flex space-x-2">
-                        <?php foreach ($tracks['results'] as $track) : ?>
+                        <?php foreach ($top_picks['results'] as $track) : ?>
                             <div 
                                 onclick="playTrack('<?= $track['audio'] ?>')" 
                                 class="flex flex-col p-3 min-w-48 bg-card border border-border rounded-lg cursor-pointer">
@@ -94,33 +95,32 @@ $user = new Free('Chano');
                     </div>
                 </div>
 
-                <!-- RECOMMENDED ARTIST CARDS -->
+                <!-- ROCK CARDS -->
                 <div class="mb-8">
-                    <h1 class="text-[2rem] font-bold">Recommended Artist</h1>
+                    <h1 class="text-[2rem] font-bold">Get Hyped Up!</h1>
                     <div class="flex space-x-2">
-                        <div class="flex flex-col p-3 min-w-48 bg-card border border-border rounded-lg">
-                            <div class="w-full mb-2 max-h-48 bg-panel rounded-md">
-                                <img 
-                                    src="/assets/icons/music-note.svg" 
-                                    alt="music"
-                                    class="w-full h-full"
-                                />
+                        <?php foreach ($rock_tracks['results'] as $track) : ?>
+                            <div 
+                                onclick="playTrack('<?= $track['audio'] ?>')" 
+                                class="flex flex-col p-3 min-w-48 bg-card border border-border rounded-lg cursor-pointer">
+                            <!-- IMAGE  -->
+                                <div class="w-full mb-2 max-h-48 bg-panel rounded-md">
+                                    <img 
+                                        src=<?= $track['album_image']; ?> 
+                                        alt=<?= $track['album_id']; ?>
+                                        class="w-full h-full rounded-md select-none"
+                                    />
+                                </div>
+                                <!-- TITLE -->
+                                <h2 class="max-w-full text-[1.125rem] font-semibold text-ellipsis whitespace-nowrap overflow-hidden">
+                                    <?= $track['name']; ?>
+                                </h2>
+                                <!-- ARTIST -->
+                                <p class="max-w-full text-sm font-light text-ellipsis whitespace-nowrap overflow-hidden">
+                                    <?= $track['artist_name']; ?>
+                                </p>
                             </div>
-                            <h2 class="text-[1.125rem] font-semibold">Hello, World</h2>
-                            <p class="text-sm font-light">Chano the Artist</p>
-                        </div>
-
-                        <div class="flex flex-col p-3 min-w-48 bg-card border border-border rounded-lg">
-                            <div class="w-full mb-2 max-h-48 bg-panel rounded-md">
-                                <img 
-                                    src="/assets/icons/music-note.svg" 
-                                    alt="music"
-                                    class="w-full h-full"
-                                />
-                            </div>
-                            <h2 class="text-[1.125rem] font-semibold">Hello, World</h2>
-                            <p class="text-sm font-light">Chano the Artist</p>
-                        </div>
+                        <?php endforeach; ?>
                     </div>
                 </div>
             </div>
