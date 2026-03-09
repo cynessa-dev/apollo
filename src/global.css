@@ -196,23 +196,17 @@
   .left-0 {
     left: calc(var(--spacing) * 0);
   }
-  .mt-6 {
-    margin-top: calc(var(--spacing) * 6);
-  }
   .mb-2 {
     margin-bottom: calc(var(--spacing) * 2);
   }
   .mb-8 {
     margin-bottom: calc(var(--spacing) * 8);
   }
-  .line-clamp-1 {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1;
-  }
   .flex {
     display: flex;
+  }
+  .hidden {
+    display: none;
   }
   .table {
     display: table;
@@ -223,8 +217,17 @@
   .h-full {
     height: 100%;
   }
+  .h-screen {
+    height: 100vh;
+  }
   .max-h-48 {
     max-height: calc(var(--spacing) * 48);
+  }
+  .w-2 {
+    width: calc(var(--spacing) * 2);
+  }
+  .w-2\/12 {
+    width: calc(2 / 12 * 100%);
   }
   .w-6 {
     width: calc(var(--spacing) * 6);
@@ -232,11 +235,11 @@
   .w-10 {
     width: calc(var(--spacing) * 10);
   }
+  .w-fit {
+    width: fit-content;
+  }
   .w-full {
     width: 100%;
-  }
-  .max-w-2 {
-    max-width: calc(var(--spacing) * 2);
   }
   .max-w-10 {
     max-width: calc(var(--spacing) * 10);
@@ -244,11 +247,35 @@
   .max-w-full {
     max-width: 100%;
   }
+  .max-w-screen {
+    max-width: 100vw;
+  }
+  .min-w-0 {
+    min-width: calc(var(--spacing) * 0);
+  }
   .min-w-48 {
     min-width: calc(var(--spacing) * 48);
   }
+  .min-w-screen {
+    min-width: 100vw;
+  }
+  .flex-1 {
+    flex: 1;
+  }
+  .flex-grow {
+    flex-grow: 1;
+  }
+  .grow {
+    flex-grow: 1;
+  }
   .border-collapse {
     border-collapse: collapse;
+  }
+  .cursor-grabbing {
+    cursor: grabbing;
+  }
+  .cursor-not-allowed {
+    cursor: not-allowed;
   }
   .cursor-pointer {
     cursor: pointer;
@@ -302,6 +329,12 @@
   }
   .overflow-hidden {
     overflow: hidden;
+  }
+  .overflow-x-scroll {
+    overflow-x: scroll;
+  }
+  .overflow-y-auto {
+    overflow-y: auto;
   }
   .rounded-full {
     border-radius: calc(infinity * 1px);
@@ -359,8 +392,8 @@
   .pr-3 {
     padding-right: calc(var(--spacing) * 3);
   }
-  .pr-6 {
-    padding-right: calc(var(--spacing) * 6);
+  .pb-24 {
+    padding-bottom: calc(var(--spacing) * 24);
   }
   .pl-3 {
     padding-left: calc(var(--spacing) * 3);
@@ -436,6 +469,21 @@ h1 {
 p {
   color: var(--color-body);
   font-family: var(--font-body);
+}
+music img, music h2, music p {
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 @property --tw-space-y-reverse {
   syntax: "*";
