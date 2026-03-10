@@ -1,8 +1,19 @@
 
+const audio_ads = [
+    '/assets/ads/ad_1.mp3',
+    '/assets/ads/ad_2.mp3',
+    '/assets/ads/ad_3.mp3',
+];
+
 const player = document.getElementById('player');
 
 let action = 'play'
 let currentTrack = null;
+
+function getRandomAd() {
+    const index = Math.floor(Math.random() * audio_ads.length);
+    return audio_ads[index];
+}
 
 function playTrack(url) {
 
@@ -21,7 +32,19 @@ function playTrack(url) {
         .then(data => {
 
             currentTrack = url; // Save the incoming track for future comparing
-            player.src = data.track;
-            player.play();
+
+            if (data.account_type === 'free') {
+                player.src = getRandomAd();
+                player.play();
+
+                player.onended = () => {
+                    player.src = data.track;
+                    player.play();
+                    player.onended = null;
+                }
+            } else {
+                player.src = data.track;
+                player.play();
+            }
         });
 }
