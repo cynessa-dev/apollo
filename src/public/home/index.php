@@ -31,152 +31,180 @@ $is_premium = $account_type === 'premium' ? 'checked' : '';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listen with Apollo</title>
     <link rel="stylesheet" href="/global.css">
+    <script src="/config/scripts/home.js" defer></script>
     <script src="/config/scripts/player.js" defer></script>
     <script src="/config/scripts/musicCarousel.js" defer></script>
     <script src="/config/scripts/handleTheme.js" defer></script>
     <script src="/config/scripts/handleAccountType.js" defer></script>
 </head>
 <body>
-    <div class="flex flex-col space-y-3">
-        <!-- HERO -->
-        <nav class="flex justify-between items-center px-6 py-4 bg-panel">
-            <h1 class="text-[1.5rem] font-semibold select-none">Apollo</h1>
-            <ul class="flex space-x-6 text-[1.125rem]">
-                <li class="hidden md:block">
-                    <a href="https://github.com/cynessa-dev/apollo/blob/main/DEVLOG.md" target="_blank">Documentation</a>
-                </li>
-                <li class="hidden md:block">
-                    <a href="https://github.com/cynessa-dev" target="_blank">GitHub</a>
-                </li>
-                <li class="hidden md:block">
-                    <a href="https://christian-mamplata.vercel.app/" target="_blank">Creator</a>
-                </li>
-            </ul>
-        </nav>
 
-        <!-- LOWER -->
-        <div class="flex h-screen pr-3 space-x-3 overflow-hidden">
-            <!-- SIDE BAR -->
-            <div class="flex flex-col pl-3 py-4 space-y-6 bg-panel text-secondary text-[1.125rem] rounded-tr-lg">            
-                <div class="flex items-center space-x-3 cursor-not-allowed" title="Not a feature yet">
-                    <svg class="text-body w-6 h-6 fill-current" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-                    </svg>
-                    <h1 class="hidden">Search</h1>
-                </div>
-                <div class="flex items-center space-x-3 cursor-not-allowed" title="Not a feature yet">
-                    <svg class="text-body w-6 h-6 fill-current" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-collection" viewBox="0 0 16 16">
-                        <path d="M2.5 3.5a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1zm2-2a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1zM0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6zm1.5.5A.5.5 0 0 1 1 13V6a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5z"/>
-                    </svg>
-                    <h1 class="hidden">Library</h1>
-                </div>
-                <div class="flex items-center space-x-3 cursor-not-allowed" title="Not a feature yet">
-                    <svg class="text-body w-6 h-6 fill-current" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-compass" viewBox="0 0 16 16">
-                        <path d="M8 16.016a7.5 7.5 0 0 0 1.962-14.74A1 1 0 0 0 9 0H7a1 1 0 0 0-.962 1.276A7.5 7.5 0 0 0 8 16.016m6.5-7.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0"/>
-                        <path d="m6.94 7.44 4.95-2.83-2.83 4.95-4.949 2.83 2.828-4.95z"/>
-                    </svg>
-                    <h1 class="hidden">Explore</h1>
-                </div>
+<!-- TOP NAV -->
+<nav class="app-nav">
+    <a href="/" class="app-nav-logo">Apollo<span class="dot">.</span></a>
+
+    <ul class="app-nav-links">
+        <li><a href="https://github.com/cynessa-dev/apollo/blob/main/DEVLOG.md" target="_blank">Documentation</a></li>
+        <li><a href="https://github.com/cynessa-dev" target="_blank">GitHub</a></li>
+        <li><a href="https://christian-mamplata.vercel.app/" target="_blank">Creator</a></li>
+    </ul>
+
+    <div class="nav-controls">
+        <!-- Dark mode toggle -->
+        <div class="nav-control-item">
+            <label class="text-label" for="theme-toggle">Dark</label>
+            <label class="mini-toggle" for="theme-toggle" title="Toggle dark mode">
+                <input type="checkbox" id="theme-toggle" <?= $is_dark ?> />
+                <span class="mini-toggle-track"></span>
+                <span class="mini-toggle-knob"></span>
+            </label>
+        </div>
+
+        <!-- Premium toggle -->
+        <div class="nav-control-item">
+            <label class="text-label" for="account-type-toggle">Premium</label>
+            <label class="mini-toggle" for="account-type-toggle" title="Toggle premium account">
+                <input type="checkbox" id="account-type-toggle" <?= $is_premium ?> />
+                <span class="mini-toggle-track"></span>
+                <span class="mini-toggle-knob"></span>
+            </label>
+        </div>
+    </div>
+
+    <button class="app-hamburger" id="app-hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+    </button>
+</nav>
+
+<!-- MOBILE DRAWER -->
+<ul class="mobile-drawer" id="mobile-drawer">
+    <li><a href="https://github.com/cynessa-dev/apollo/blob/main/DEVLOG.md" target="_blank">Documentation</a></li>
+    <li><a href="https://github.com/cynessa-dev" target="_blank">GitHub</a></li>
+    <li><a href="https://christian-mamplata.vercel.app/" target="_blank">Creator</a></li>
+    <li>
+        <div class="drawer-controls">
+            <div class="nav-control-item">
+                <label class="text-label" for="theme-toggle-m">Dark Mode</label>
+                <label class="mini-toggle" for="theme-toggle-m">
+                    <input type="checkbox" id="theme-toggle-m" <?= $is_dark ?> />
+                    <span class="mini-toggle-track"></span>
+                    <span class="mini-toggle-knob"></span>
+                </label>
             </div>
+            <div class="nav-control-item">
+                <label class="text-label" for="account-type-toggle-m">Premium Account</label>
+                <label class="mini-toggle" for="account-type-toggle-m">
+                    <input type="checkbox" id="account-type-toggle-m" <?= $is_premium ?> />
+                    <span class="mini-toggle-track"></span>
+                    <span class="mini-toggle-knob"></span>
+                </label>
+            </div>
+        </div>
+    </li>
+</ul>
 
-            <!-- MAIN PANEL -->
-            <div class="w-full px-6 py-3 pb-24 bg-panel rounded-lg overflow-y-auto no-scrollbar">
-                <!-- SPECIAL CONTROLS -->
-                <div class="flex space-x-6 justify-end items-center my-3">
-                    <div class="flex justify-center items-center space-x-2">
-                        <label class="text-secondary font-light" for="theme-toggle">Dark Mode:</label>
-                        <label class="flex items-center cursor-pointer" for="theme-toggle">
-                            <div class="relative">
-                                <input class="sr-only peer" type="checkbox" id="theme-toggle" <?= $is_dark ?> />
-                                <div class="w-12 h-6 bg-border rounded-full peer-checked:bg-accent transition-colors duration-300"></div>
-                                <div class="absolute top-1 left-1 w-4 h-4 bg-card rounded-full shadow transition-transform duration-300 peer-checked:translate-x-6"></div>
+<!-- APP BODY -->
+<div class="app-body">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <button class="sidebar-btn" title="Search">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+            </svg>
+        </button>
+
+        <div class="sidebar-divider"></div>
+
+        <button class="sidebar-btn" title="Library">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                <path d="M2.5 3.5a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1zm2-2a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1zM0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6zm1.5.5A.5.5 0 0 1 1 13V6a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5z"/>
+            </svg>
+        </button>
+
+        <button class="sidebar-btn" title="Explore">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                <path d="M8 16.016a7.5 7.5 0 0 0 1.962-14.74A1 1 0 0 0 9 0H7a1 1 0 0 0-.962 1.276A7.5 7.5 0 0 0 8 16.016m6.5-7.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0"/>
+                <path d="m6.94 7.44 4.95-2.83-2.83 4.95-4.949 2.83 2.828-4.95z"/>
+            </svg>
+        </button>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- GREETING -->
+        <div class="greeting">
+            <p class="greeting-eyebrow">🎵 Now streaming</p>
+            <h2>What are we vibing to<br>today, <?= htmlspecialchars($user->name ?? 'there') ?>?</h2>
+        </div>
+
+        <!-- TOP PICKS -->
+        <div class="music-section">
+            <div class="section-header">
+                <h3>Top Picks</h3>
+                <span class="track-count"><?= count($top_picks['results']) ?> tracks</span>
+            </div>
+            <div class="track-row">
+                <?php foreach ($top_picks['results'] as $track) : ?>
+                    <div class="music-card" onclick="playTrack('<?= htmlspecialchars($track['audio']) ?>')">
+                        <div class="music-card-img-wrap">
+                            <img
+                                src="<?= htmlspecialchars($track['album_image']) ?>"
+                                alt="<?= htmlspecialchars($track['name']) ?>"
+                                draggable="false"
+                            />
+                            <div class="play-overlay">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                                    <path d="M10.804 8 5 4.633v6.734zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696z"/>
+                                </svg>
                             </div>
-                        </label>
-                    </div>
-
-                    <div class="flex justify-center items-center space-x-2">
-                        <label class="text-secondary font-light" for="account-type-toggle">Premium Account: </label>
-                        <label class="flex items-center cursor-pointer" for="account-type-toggle">
-                            <div class="relative">
-                                <input class="sr-only peer" type="checkbox" id="account-type-toggle" <?= $is_premium ?> />
-                                <div class="w-12 h-6 bg-border rounded-full peer-checked:bg-accent transition-colors duration-300"></div>
-                                <div class="absolute top-1 left-1 w-4 h-4 bg-card rounded-full shadow transition-transform duration-300 peer-checked:translate-x-6"></div>
-                            </div>
-                        </label>
-                    </div>
-                </div>
-            
-                <!-- TOP PICK SONG CARDS -->
-                <div class="mb-8">
-                    <h1 class="text-[2rem] font-bold">Top Picks</h1>
-                    <div class="flex space-x-3 whitespace-nowrap overflow-x-scroll no-scrollbar scrollable">
-                        <?php foreach ($top_picks['results'] as $track) : ?>
-                            <music 
-                                onclick="playTrack('<?= $track['audio'] ?>')" 
-                                class="flex flex-col p-3 max-w-32 bg-card border border-border rounded-lg cursor-pointer lg:max-w-0 lg:min-w-48">
-                                <!-- IMAGE  -->
-                                <div class="w-full mb-2 max-h-48 bg-panel rounded-md">
-                                    <img 
-                                        src=<?= $track['album_image']; ?> 
-                                        alt=<?= $track['album_id']; ?>
-                                        class="w-full h-full rounded-md select-none"
-                                    />
-                                </div>
-                                <!-- TITLE -->
-                                <h2 class="max-w-full text-[1.125rem] font-semibold text-ellipsis whitespace-nowrap overflow-hidden">
-                                    <?= $track['name']; ?>
-                                </h2>
-                                <!-- ARTIST -->
-                                <p class="max-w-full text-sm font-light text-ellipsis whitespace-nowrap overflow-hidden">
-                                    <?= $track['artist_name']; ?>
-                                </p>
-                            </music>
-                        <?php endforeach; ?>
-                    </div>
-                </div>
-
-                <!-- GENRE CARDS -->
-                <?php foreach ($genres as $genre => $catchphrase ) : ?>
-                    <div class="mb-8">
-                        <h1 class="text-[2rem] font-bold">
-                            <?= $catchphrase ?>
-                        </h1>
-                        <div class="flex space-x-3 whitespace-nowrap overflow-x-scroll no-scrollbar scrollable">
-                            <?php $tracks = $api->searchTracks($genre) ?>
-                            <?php foreach ($tracks['results'] as $track) : ?>
-                                <music 
-                                    onclick="playTrack('<?= $track['audio'] ?>')" 
-                                    class="flex flex-col p-3 max-w-32 bg-card border border-border rounded-lg cursor-pointer  lg:max-w-0 lg:min-w-48">
-                                    <!-- IMAGE  -->
-                                    <div class="w-full mb-2 max-h-48 bg-panel rounded-md">
-                                        <img 
-                                            src=<?= $track['album_image']; ?> 
-                                            alt=<?= $track['album_id']; ?>
-                                            class="w-full h-full rounded-md select-none"
-                                        />
-                                    </div>
-                                    <!-- TITLE -->
-                                    <h2 class="max-w-full text-[1.125rem] font-semibold text-ellipsis whitespace-nowrap overflow-hidden">
-                                        <?= $track['name']; ?>
-                                    </h2>
-                                    <!-- ARTIST -->
-                                    <p class="max-w-full text-sm font-light text-ellipsis whitespace-nowrap overflow-hidden">
-                                        <?= $track['artist_name']; ?>
-                                    </p>
-                                </music>
-                            <?php endforeach; ?>
                         </div>
+                        <h2><?= htmlspecialchars($track['name']) ?></h2>
+                        <p><?= htmlspecialchars($track['artist_name']) ?></p>
                     </div>
                 <?php endforeach; ?>
             </div>
-
         </div>
 
-        <!-- PLAYER -->
-        <div class="fixed bottom-0 left-0 w-full bg-card p-4 border-t border-border">
-            <audio id="player" controls class="w-full"></audio>
-        </div>
+        <!-- GENRE SECTIONS -->
+        <?php foreach ($genres as $genre => $catchphrase) : ?>
+            <?php $tracks = $api->searchTracks($genre) ?>
+            <div class="music-section">
+                <div class="section-header">
+                    <h3><?= htmlspecialchars($catchphrase) ?></h3>
+                    <span class="track-count"><?= count($tracks['results']) ?> tracks</span>
+                </div>
+                <div class="track-row">
+                    <?php foreach ($tracks['results'] as $track) : ?>
+                        <div class="music-card" onclick="playTrack('<?= htmlspecialchars($track['audio']) ?>')">
+                            <div class="music-card-img-wrap">
+                                <img
+                                    src="<?= htmlspecialchars($track['album_image']) ?>"
+                                    alt="<?= htmlspecialchars($track['name']) ?>"
+                                    draggable="false"
+                                />
+                                <div class="play-overlay">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                                        <path d="M10.804 8 5 4.633v6.734zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <h2><?= htmlspecialchars($track['name']) ?></h2>
+                            <p><?= htmlspecialchars($track['artist_name']) ?></p>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        <?php endforeach; ?>
 
-    </div>
+    </main>
+</div>
+
+<!-- PLAYER BAR -->
+<div class="player-bar">
+    <audio id="player" controls></audio>
+</div>
+
 </body>
 </html>
