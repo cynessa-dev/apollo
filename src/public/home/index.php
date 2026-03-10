@@ -77,7 +77,7 @@ $is_dark = $theme === 'dark' ? 'checked' : '';
             <!-- MAIN PANEL -->
             <div class="w-full px-6 py-3 pb-24 bg-panel rounded-lg overflow-y-auto no-scrollbar">
                 <!-- SPECIAL CONTROLS -->
-                <div class="flex justify-end items-center">
+                <div class="flex justify-end items-center my-3">
                     <div class="flex justify-center items-center space-x-2">
                         <label class="text-secondary font-light" for="theme-toggle">Dark Mode:</label>
                         <label class="flex items-center cursor-pointer" for="theme-toggle">

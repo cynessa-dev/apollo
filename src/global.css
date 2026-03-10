@@ -225,6 +225,9 @@
   .left-1 {
     left: calc(var(--spacing) * 1);
   }
+  .my-3 {
+    margin-block: calc(var(--spacing) * 3);
+  }
   .mb-2 {
     margin-bottom: calc(var(--spacing) * 2);
   }
