@@ -39,13 +39,13 @@ $theme = $_SESSION['theme'] ?? 'light';
                 <li>
                     <input type="checkbox" id="theme-toggle" <?= $theme === 'light' ? '' : 'checked' ?> />
                 </li>
-                <li>
+                <li class="hidden md:block">
                     <a href="https://github.com/cynessa-dev/apollo/blob/main/DEVLOG.md" target="_blank">Documentation</a>
                 </li>
-                <li>
+                <li class="hidden md:block">
                     <a href="https://github.com/cynessa-dev" target="_blank">GitHub</a>
                 </li>
-                <li>
+                <li class="hidden md:block">
                     <a href="https://christian-mamplata.vercel.app/" target="_blank">Creator</a>
                 </li>
             </ul>
@@ -85,7 +85,7 @@ $theme = $_SESSION['theme'] ?? 'light';
                         <?php foreach ($top_picks['results'] as $track) : ?>
                             <music 
                                 onclick="playTrack('<?= $track['audio'] ?>')" 
-                                class="flex flex-col p-3 min-w-48 bg-card border border-border rounded-lg cursor-pointer">
+                                class="flex flex-col p-3 max-w-32 bg-card border border-border rounded-lg cursor-pointer lg:max-w-0 lg:min-w-48">
                                 <!-- IMAGE  -->
                                 <div class="w-full mb-2 max-h-48 bg-panel rounded-md">
                                     <img 
@@ -118,7 +118,7 @@ $theme = $_SESSION['theme'] ?? 'light';
                             <?php foreach ($tracks['results'] as $track) : ?>
                                 <music 
                                     onclick="playTrack('<?= $track['audio'] ?>')" 
-                                    class="flex flex-col p-3 min-w-48 bg-card border border-border rounded-lg cursor-pointer">
+                                    class="flex flex-col p-3 max-w-32 bg-card border border-border rounded-lg cursor-pointer  lg:max-w-0 lg:min-w-48">
                                     <!-- IMAGE  -->
                                     <div class="w-full mb-2 max-h-48 bg-panel rounded-md">
                                         <img 
