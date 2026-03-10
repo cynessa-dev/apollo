@@ -21,13 +21,13 @@
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
     --color-accent: oklch(0.6868 0.2689 324.48);
-    --color-background: oklch(0.9501 0 324.48);
-    --color-panel: oklch(0.9697 0 324.48);
-    --color-card: oklch(0.9956 0 324.48);
-    --color-border: oklch(0.9207 0 324.48);
-    --color-head: oklch(0.165 0 324.48);
-    --color-body: oklch(0.2346 0 324.48);
-    --color-secondary: oklch(0.3031 0 324.48);
+    --color-background: oklch(0.162 0 324.48);
+    --color-panel: oklch(0.2001 0 324.48);
+    --color-card: oklch(0.2348 0 324.48);
+    --color-border: oklch(0.2985 0 324.48);
+    --color-head: oklch(0.9212 0 324.48);
+    --color-body: oklch(0.8725 0 324.48);
+    --color-secondary: oklch(0.8014 0 324.48);
     --font-header: Nunito, Poppins, sans-serif;
     --font-body: Nunito Sans, Poppins, sans-serif;
   }
@@ -410,16 +410,13 @@
 }
 body {
   background-color: var(--color-background);
+  color: var(--color-body);
   font-family: var(--font-body);
   font-size: 1rem;
 }
 h1 {
   color: var(--color-head);
   font-family: var(--font-header);
-}
-p {
-  color: var(--color-body);
-  font-family: var(--font-body);
 }
 music img, music h2, music p {
   user-drag: none;
