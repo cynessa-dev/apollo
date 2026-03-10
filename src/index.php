@@ -13,6 +13,7 @@ $is_dark = $theme === 'dark' ? 'checked' : '';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apollo — Stream. Discover. Vibe.</title>
     <link rel="stylesheet" href="/global.css">
+    <script src="/config/scripts/landing.js" defer></script>
 </head>
 <body>
 
