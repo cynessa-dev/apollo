@@ -37,8 +37,14 @@ $is_dark = $theme === 'dark' ? 'checked' : '';
         <nav class="flex justify-between items-center px-6 py-4 bg-panel">
             <h1 class="text-[1.5rem] font-semibold select-none">Apollo</h1>
             <ul class="flex space-x-6 text-[1.125rem]">
-                <li class="flex justify-center items-center">
-                    <input name="theme-toggle" type="checkbox" id="theme-toggle" <?= $is_dark ?> />
+                <li>
+                    <label class="flex items-center cursor-pointer" for="theme-toggle">
+                        <div class="relative">
+                            <input class="sr-only peer" type="checkbox" id="theme-toggle" <?= $is_dark ?> />
+                            <div class="w-12 h-6 bg-border rounded-full peer-checked:bg-accent transition-colors duration-300"></div>
+                            <div class="absolute top-1 left-1 w-4 h-4 bg-card rounded-full shadow transition-transform duration-300 peer-checked:translate-x-6"></div>
+                        </div>
+                    </label>
                 </li>
                 <li class="hidden md:block">
                     <a href="https://github.com/cynessa-dev/apollo/blob/main/DEVLOG.md" target="_blank">Documentation</a>
