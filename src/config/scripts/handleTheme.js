@@ -1,9 +1,9 @@
 
-const toggle = document.getElementById('theme-toggle');
+const themeToggle = document.getElementById('theme-toggle');
 
 // Toggle on change
-toggle.addEventListener('change', () => {
-    const isDark = toggle.checked;
+themeToggle.addEventListener('change', () => {
+    const isDark = themeToggle.checked;
     let theme = isDark ? 'dark' : 'light';
 
     // Toggle between light and dark immediately
