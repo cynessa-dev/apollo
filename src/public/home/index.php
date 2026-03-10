@@ -16,6 +16,7 @@ $genres = [
 
 $user = new Free('Chano');
 $theme = $_SESSION['theme'] ?? 'light';
+$is_dark = $theme === 'dark' ? 'checked' : '';
 
 ?>
 
@@ -36,8 +37,8 @@ $theme = $_SESSION['theme'] ?? 'light';
         <nav class="flex justify-between items-center px-6 py-4 bg-panel">
             <h1 class="text-[1.5rem] font-semibold select-none">Apollo</h1>
             <ul class="flex space-x-6 text-[1.125rem]">
-                <li>
-                    <input type="checkbox" id="theme-toggle" <?= $theme === 'light' ? '' : 'checked' ?> />
+                <li class="flex justify-center items-center">
+                    <input name="theme-toggle" type="checkbox" id="theme-toggle" <?= $is_dark ?> />
                 </li>
                 <li class="hidden md:block">
                     <a href="https://github.com/cynessa-dev/apollo/blob/main/DEVLOG.md" target="_blank">Documentation</a>
