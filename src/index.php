@@ -37,5 +37,17 @@ $is_dark = $theme === 'dark' ? 'checked' : '';
         </ul>
     </nav>
 
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="hero-badge">🎵 Free to Stream</div>
+            <h1>Music that moves<br><span>with you.</span></h1>
+            <p>Apollo brings you thousands of free, open-licensed tracks — from rock to romance — all in one clean, distraction-free player. No subscriptions. Just music.</p>
+            <a href="./public/home" class="btn-primary">Get Jamming →</a>
+            <p class="hero-note">Powered by the Jamendo API · Free & open-source music only</p>
+        </div>
+    </section>
+
 </body>
 </html>
