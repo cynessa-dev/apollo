@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 require_once '/var/www/html/config/services/jamendoAPI.php';
 require_once '/var/www/html/config/backend/musicPlayer.php';
@@ -14,11 +15,12 @@ $genres = [
 ];
 
 $user = new Free('Chano');
+$theme = $_SESSION['theme'] ?? 'light';
 
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="<?= $theme; ?>">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,6 +28,7 @@ $user = new Free('Chano');
     <link rel="stylesheet" href="/global.css">
     <script src="/config/scripts/player.js" defer></script>
     <script src="/config/scripts/musicCarousel.js" defer></script>
+    <script src="/config/scripts/handleTheme.js" defer></script>
 </head>
 <body>
     <div class="flex flex-col space-y-3">
@@ -33,6 +36,9 @@ $user = new Free('Chano');
         <nav class="flex justify-between items-center px-6 py-4 bg-panel">
             <h1 class="text-[1.5rem] font-semibold select-none">Apollo</h1>
             <ul class="flex space-x-6 text-[1.125rem]">
+                <li>
+                    <input type="checkbox" id="theme-toggle" <?= $theme === 'light' ? '' : 'checked' ?> />
+                </li>
                 <li>
                     <a href="https://github.com/cynessa-dev/apollo/blob/main/DEVLOG.md" target="_blank">Documentation</a>
                 </li>
