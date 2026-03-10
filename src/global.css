@@ -21,13 +21,13 @@
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
     --color-accent: oklch(0.6868 0.2689 324.48);
-    --color-background: oklch(0.162 0 324.48);
-    --color-panel: oklch(0.2001 0 324.48);
-    --color-card: oklch(0.2348 0 324.48);
-    --color-border: oklch(0.2985 0 324.48);
-    --color-head: oklch(0.9212 0 324.48);
-    --color-body: oklch(0.8725 0 324.48);
-    --color-secondary: oklch(0.8014 0 324.48);
+    --color-background: oklch(0.9501 0 324.48);
+    --color-panel: oklch(0.9697 0 324.48);
+    --color-card: oklch(0.9956 0 324.48);
+    --color-border: oklch(0.9207 0 324.48);
+    --color-head: oklch(0.165 0 324.48);
+    --color-body: oklch(0.2346 0 324.48);
+    --color-secondary: oklch(0.3031 0 324.48);
     --font-header: Nunito, Poppins, sans-serif;
     --font-body: Nunito Sans, Poppins, sans-serif;
   }
@@ -404,6 +404,22 @@
     -webkit-user-select: none;
     user-select: none;
   }
+}
+:root.dark {
+  --color-accent: oklch(0.6868 0.2689 324.48);
+  --color-success: oklch(0.8544 0.2097 150.88);
+  --color-warning: oklch(0.9309 0.1702 105.35);
+  --color-danger: oklch(0.6397 0.2417 11.68);
+  --color-background: oklch(0.162 0 324.48);
+  --color-panel: oklch(0.2001 0 324.48);
+  --color-card: oklch(0.2348 0 324.48);
+  --color-border: oklch(0.2985 0 324.48);
+  --color-head: oklch(0.9212 0 324.48);
+  --color-body: oklch(0.8725 0 324.48);
+  --color-secondary: oklch(0.8014 0 324.48);
+  --color-muted: oklch(0.699 0 324.48);
+  --font-header: Nunito, Poppins, sans-serif;
+  --font-body: Nunito Sans, Poppins, sans-serif;
 }
 :root {
   font-size: 16px;
