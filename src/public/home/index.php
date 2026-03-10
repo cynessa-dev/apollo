@@ -15,8 +15,12 @@ $genres = [
 ];
 
 $user = new Free('Chano');
+
 $theme = $_SESSION['theme'] ?? 'light';
+$account_type = $_SESSION['account_type'] ?? 'free';
+
 $is_dark = $theme === 'dark' ? 'checked' : '';
+$is_premium = $account_type === 'premium'? 'checked' : '';
 
 ?>
 
@@ -77,12 +81,23 @@ $is_dark = $theme === 'dark' ? 'checked' : '';
             <!-- MAIN PANEL -->
             <div class="w-full px-6 py-3 pb-24 bg-panel rounded-lg overflow-y-auto no-scrollbar">
                 <!-- SPECIAL CONTROLS -->
-                <div class="flex justify-end items-center my-3">
+                <div class="flex space-x-6 justify-end items-center my-3">
                     <div class="flex justify-center items-center space-x-2">
                         <label class="text-secondary font-light" for="theme-toggle">Dark Mode:</label>
                         <label class="flex items-center cursor-pointer" for="theme-toggle">
                             <div class="relative">
                                 <input class="sr-only peer" type="checkbox" id="theme-toggle" <?= $is_dark ?> />
+                                <div class="w-12 h-6 bg-border rounded-full peer-checked:bg-accent transition-colors duration-300"></div>
+                                <div class="absolute top-1 left-1 w-4 h-4 bg-card rounded-full shadow transition-transform duration-300 peer-checked:translate-x-6"></div>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="flex justify-center items-center space-x-2">
+                        <label class="text-secondary font-light" for="account-type-toggle">Premium Account: </label>
+                        <label class="flex items-center cursor-pointer" for="account-type-toggle">
+                            <div class="relative">
+                                <input class="sr-only peer" type="checkbox" id="account-type-toggle" <?= $is_premium ?> />
                                 <div class="w-12 h-6 bg-border rounded-full peer-checked:bg-accent transition-colors duration-300"></div>
                                 <div class="absolute top-1 left-1 w-4 h-4 bg-card rounded-full shadow transition-transform duration-300 peer-checked:translate-x-6"></div>
                             </div>
