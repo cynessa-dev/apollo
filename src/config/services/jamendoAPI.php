@@ -6,7 +6,7 @@ class JamendoAPI {
     private $limit;
 
     public function __construct() {
-        $this->client_id = $_ENV['JAMENDO_CLIENT_ID'];
+        $this->client_id = getenv('JAMENDO_CLIENT_ID');
         $this->limit = 10;
     }
 
