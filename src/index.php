@@ -49,5 +49,100 @@ $is_dark = $theme === 'dark' ? 'checked' : '';
         </div>
     </section>
 
+    <!-- WAVE -->
+    <div class="wave">
+        <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="var(--color-panel)" />
+        </svg>
+    </div>
+
+    <!-- DISCLAIMER -->
+    <section class="disclaimer" id="disclaimer">
+        <p class="section-label">Heads up</p>
+        <h2>A few things to know</h2>
+        <div class="disclaimer-cards">
+            <div class="disclaimer-card">
+                <div class="icon">🎼</div>
+                <h3>Free & Open-Source Music</h3>
+                <p>All tracks are sourced from Jamendo and are licensed under Creative Commons. Apollo does not host or own any music.</p>
+            </div>
+            <div class="disclaimer-card">
+                <div class="icon">🤝</div>
+                <h3>Not Affiliated with Artists</h3>
+                <p>Apollo is an independent project and has no direct affiliation, partnership, or endorsement from any artist or record label.</p>
+            </div>
+            <div class="disclaimer-card">
+                <div class="icon">🎓</div>
+                <h3>School Project</h3>
+                <p>Apollo was built as a school project. It is not a commercial product and is not intended for profit or large-scale distribution.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- WAVE -->
+    <div class="wave">
+        <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <path d="M0,30 C360,0 1080,60 1440,30 L1440,0 L0,0 Z" fill="var(--color-panel)" />
+        </svg>
+    </div>
+
+    <!-- TECH STACK -->
+    <section class="techstack" id="techstack">
+        <p class="section-label">Under the hood</p>
+        <h2>Built with</h2>
+        <p>A lean, modern stack — no frameworks, no bloat. Just the essentials done well.</p>
+        <div class="tech-grid">
+            <div class="tech-pill"><span class="dot"></span>PHP</div>
+            <div class="tech-pill"><span class="dot"></span>Tailwind CSS</div>
+            <div class="tech-pill"><span class="dot"></span>JavaScript</div>
+            <div class="tech-pill"><span class="dot"></span>Jamendo API</div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-logo">Apollo<span>.</span></div>
+        <div class="footer-links">
+            <a href="https://github.com/cynessa-dev/apollo/blob/main/DEVLOG.md" target="_blank">Documentation</a>
+            <a href="https://github.com/cynessa-dev" target="_blank">GitHub</a>
+            <a href="https://christian-mamplata.vercel.app/" target="_blank">Portfolio</a>
+        </div>
+        <p>Built by <a href="https://christian-mamplata.vercel.app/" target="_blank">Christian Mamplata</a> · <a href="https://github.com/cynessa-dev" target="_blank">@cynessa-dev</a></p>
+        <p>© <?= date('Y') ?> Apollo · School Project · All music via Jamendo under Creative Commons</p>
+    </footer>
+
+    <script>
+        // Theme toggle
+        const toggle = document.getElementById('theme-toggle');
+
+        toggle.addEventListener('change', () => {
+            const isDark = toggle.checked;
+            const theme = isDark ? 'dark' : 'light';
+
+            document.documentElement.classList.toggle('dark', isDark);
+
+            fetch(`/config/backend/api/themeToggler.php?theme=${theme}`)
+                .then(res => res.json())
+                .then(data => console.log(data));
+        });
+
+        // Hamburger menu
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('open');
+            navMenu.classList.toggle('open');
+        });
+
+        // Close menu when a nav link is clicked
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('open');
+                navMenu.classList.remove('open');
+            });
+        });
+    </script>
+
 </body>
 </html>
