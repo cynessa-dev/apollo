@@ -309,6 +309,9 @@
   .justify-center {
     justify-content: center;
   }
+  .justify-end {
+    justify-content: flex-end;
+  }
   .space-y-3 {
     :where(& > :not(:last-child)) {
       --tw-space-y-reverse: 0;
@@ -431,6 +434,9 @@
   }
   .text-\[0\.5rem\] {
     font-size: 0.5rem;
+  }
+  .text-\[0\.75rem\] {
+    font-size: 0.75rem;
   }
   .text-\[1\.5rem\] {
     font-size: 1.5rem;
