@@ -20,7 +20,7 @@ $theme = $_SESSION['theme'] ?? 'light';
 $account_type = $_SESSION['account_type'] ?? 'free';
 
 $is_dark = $theme === 'dark' ? 'checked' : '';
-$is_premium = $account_type === 'premium'? 'checked' : '';
+$is_premium = $account_type === 'premium' ? 'checked' : '';
 
 ?>
 
@@ -34,6 +34,7 @@ $is_premium = $account_type === 'premium'? 'checked' : '';
     <script src="/config/scripts/player.js" defer></script>
     <script src="/config/scripts/musicCarousel.js" defer></script>
     <script src="/config/scripts/handleTheme.js" defer></script>
+    <script src="/config/scripts/handleAccountType.js" defer></script>
 </head>
 <body>
     <div class="flex flex-col space-y-3">
