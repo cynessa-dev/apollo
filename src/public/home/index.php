@@ -81,7 +81,7 @@ $theme = $_SESSION['theme'] ?? 'light';
                 <!-- TOP PICK SONG CARDS -->
                 <div class="mb-8">
                     <h1 class="text-[2rem] font-bold">Top Picks</h1>
-                    <div class="flex space-x-2 whitespace-nowrap overflow-x-scroll no-scrollbar scrollable">
+                    <div class="flex space-x-3 whitespace-nowrap overflow-x-scroll no-scrollbar scrollable">
                         <?php foreach ($top_picks['results'] as $track) : ?>
                             <music 
                                 onclick="playTrack('<?= $track['audio'] ?>')" 
@@ -113,7 +113,7 @@ $theme = $_SESSION['theme'] ?? 'light';
                         <h1 class="text-[2rem] font-bold">
                             <?= $catchphrase ?>
                         </h1>
-                        <div class="flex space-x-2 whitespace-nowrap overflow-x-scroll no-scrollbar scrollable">
+                        <div class="flex space-x-3 whitespace-nowrap overflow-x-scroll no-scrollbar scrollable">
                             <?php $tracks = $api->searchTracks($genre) ?>
                             <?php foreach ($tracks['results'] as $track) : ?>
                                 <music 
