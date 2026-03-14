@@ -3,9 +3,52 @@
 
 Author: Christian Mamplata  
 Start Date: March 05, 2026  
-End Date: ---  
+End Date: March 10, 2026  
 
 ***
+
+## 🫡 End of Journey? --- March 14, 2026 [DAY 03]
+
+### Disclaimer  
+
+This section is a bit late. The latest commit at this point was posted 4 days ago, meaning this devlog is 4 days late. There are reasons for this happening:
+
+1. After finishing Project: Apollo, I immediately went to rest to prepare for my incoming midterm exams.
+2. I repaired a broken laptop.
+
+Although a lot of things happened, I'll do my best to recount everything that I did.
+
+### Backend Journey
+
+On March 09, 2026, all I did was using the Jamendo API to get tracks from Jamendo's library. The tracks are categorized based on genre, with a special one called "Top Picks". I just chose the common genres, like Love, Rock, and Metal.
+
+Previously, Project: Apollo had a section called "Top Artist" or something like that as one of its categories. Apparently, I removed it as it was **out of scope**. It's nice to have something like that, but I figured that I need to prioritize tasks properly, otherwise the project could be delayed. I learned in this situation that properly noting what tasks comes first is important to be able to build the **bare bones** of the application. This ensures that the core functionalities are all working, and Project: Apollo is usuable.
+
+After that, I added a carousel for each categories. This allows the user be able to browse between tracks respective to its categotry. I know the UI looks so basic right now, just a reminder I specialize in logic. Although, I do know a bit of frontend to help me progress in development, I still need the help of someone who actually focuses on frontend.
+
+### The Finale
+
+On March 10, 2026, I sprinted to finish the project on time. I had a lot of time for this day, and the midterm exams are right around the corner, so I had to be fast. This time, I did a little bit of UI/UX design and added a dark mode for users who prefer it. I also cleaned some dirty codes, and fixed some spacings. I am not going to go into the specifics, but know that those are just some chores. This development day was the most fun one, because I did some ads! I needed to simulate the difference between free and premium accounts. So, I made my own ads XD. I believe that this is the right choice, it adds personality, avoids any sort of legal problems, and shows participation. I recorded 3 voiceline with my phone and added it to my files. I got the path and just had the system to randomly select a voiceline, and play it before a track plays. Of course, as soon as the ad ends, the actual track will play. I also added a switch button to toggle between free and premium for testers to see the effect.
+
+Lastly, I deployed it on Render. Once everything is done and functional, I prepared it for deployment.
+
+Link to Apollo: <https://apollo-brix.onrender.com/>
+
+I used Docker to deploy it, since I am doing this project to learn more about Docker. While doing that, I ran into some problems. You see, I used `docker-compose.yml` to test Project: Apollo locally, but in Render, it requires a Dockerfile. Those are 2 different things, one creates an image, and the other tells Docker how to run multiple containers. My project uses PHP and Apache to operate, sadly, it did not use any SQL, as most of the tracks are retrieved from Jamendo API. Anyway, I built the Dockerfile with `php:8.2-apache` as my base image and just copied `src/` into `/var/www/html/`. I thought there was something more, but those 2 lines where the only needed ones. The `EXPOSE 80` line just tells the developer that the app will be in port 80, basically for documentation.
+
+There are a lot of things a I need to learn about Docker, but this was fun! I hope to learn more in my future projects! After that, I cleaned `docker-compose.yml`, but never got rid of it. Why? For documentation purposes. Once the Dockerfile was built, I uploaded commited to GitHub and deployed it on Render. Now, why Render. Well, it was the most recommended platform to deploy on, based on my current situation, according to **ChatGPT**. Yes, you heard me right, I asked ChatGPT for what is the most recommended platform to deploy. I need a free, compatible with Docker, and run PHP.
+
+### AI or Me?
+
+I believe that nothing is wrong with using AI, as long as it is ethical. When can you say it is ethical, and when it is not? The short answer is **Responsibility**. There are a lot of programming languages out there, they may differ in syntax and structure, but they have one similarity. **LOGIC**. We, developers, are in charge of solving complex problems, and building system architectures to bring solutions to the world. We may use different programming language to bring the solution to life, but it is simply a medium. Just like AI, it doesn't know how to build correctly, it just *builds*. Sure, maybe it can build actual systems from a single prompt, but do you even know what's under the hood? Can you navigate the maze created by the AI? These questions all boils down to one question, do you understand your system? I believe that companies don't hire developers jsut to *write code*. They hire **to build solutions**. Just like carpenters. A circular saw or power drill didn't replaced carpenters, it made them faster. We developers make use of what is available to us, in order to efficiently produce the **most optimal solution** to an exisiting problem. Well, that was a lot of rant about The Ethical Use of AI. I just thought of sharing this breakthrough with you! Many developers out there dread because AI will replace them, well I think different. It will be beneficial to coexist with AI, and be able to bring out the most of its potetial. **Developers don't stay, we adapt.**
+
+### The Future
+
+Well, that's all for now! I hope to maintain this project from time to time, asking my friends, seniors, and professors to critique my work. Their input is valuable to progress and improve for future projects! I love a challenge, and it makes my heart beat. Stay tunes, who knows, maybe I'll bring some more updates.
+
+Until then,
+
+**See yah later, World!**
 
 ## ✨ The Chambers of Data --- March 07, 2026 [DAY 02]
 
@@ -85,4 +128,4 @@ Additional Tech that I will be learning is:
 
 Deployment is actually required on Hostinger, however, it is a paid service. As you can see, I am *broke*~ , so we won't be using it for the meantime. I'm sure Professor Collado will understand. 😝
 
-Anyway... The deadline is 1 week from now, but I plan to finish it as soon as possible. I want to also train myself to practice Rapid Development. The project right now, will be pushed to github as the initial commit, and will serve as a **reference** for future developers and recruiters.
+Anyway... The deadline is 1 week from now, but I plan to finish it as soon as possible. I want to also train myself to practice Rapid Development. The project right now, will be pushed to gitHub as the initial commit, and will serve as a **reference** for future developers and recruiters.
