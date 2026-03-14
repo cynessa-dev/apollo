@@ -10,7 +10,6 @@ A homework given to me by Professor Collado for his PHP Subject at my University
 The following are **techs** used in the project:
 
 - Docker
-- MySQL
 - PHP
 - Tailwind CSS
 
